@@ -3,9 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Interactive Snow Site</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+    <div id="particles-js"></div>
+    <div class="sticky-bar">
+        <button id="open-modal-1">Подарок 🎁</button>
+        <button id="open-modal-2">Поздравление 🎄</button>
+    </div>
+
+    <!-- Модальное окно 1 -->
+    <div class="modal" id="modal-1">
+        <div class="modal-content">
+            <span class="close" id="close-modal-1">&times;</span>
+            <h2>С Новым Годом!</h2>
+            <p>Кликни на подарок, чтобы открыть его!</p>
+            <div class="gift" id="gift">
+                🎁
+            </div>
+            <div class="gift-content" id="gift-content">
+                🎉 Поздравляем! Пусть этот год принесёт тебе счастье и успех! 🎉
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно 2 -->
+    <div class="modal" id="modal-2">
+        <div class="modal-content">
+            <span class="close" id="close-modal-2">&times;</span>
+            <h2>Новогоднее поздравление</h2>
+            <p>Пусть Новый год принесёт тебе счастье, здоровье и кучу успехов! 🥳</p>
+        </div>
+    </div>
+    <div class="flash" id="flash"></div>
+
+    <script src="script.js"></script>
 </body>
 </html>

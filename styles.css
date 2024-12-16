@@ -1,0 +1,217 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(180deg, #0d1b2a, #1b263b, #415a77);
+    color: white;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    transition: 0.3s ease;
+}
+
+/* Снежинки */
+.snowflake {
+    position: absolute;
+    top: -10px;
+    color: white;
+    font-size: 10px;
+    opacity: 0.8;
+    cursor: pointer;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh);
+        opacity: 0.2;
+    }
+}
+
+@keyframes sway {
+    50% {
+        transform: translateX(20px);
+    }
+}
+
+.snowflake:nth-child(odd) {
+    animation: fall 10s linear infinite, sway 3s ease-in-out infinite;
+}
+
+.snowflake:nth-child(even) {
+    animation: fall 15s linear infinite, sway 4s ease-in-out infinite;
+}
+
+/* Шапка */
+.sticky-bar {
+    position: sticky;
+    top: 0;
+    background-color: rgba(0, 37, 117, 0.301);
+    backdrop-filter: blur(20px);
+    color: white;
+    padding: 20px 20px;
+    text-align: center;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.sticky-bar:hover {
+    background-color: rgba(0, 37, 117, 0.5);
+}
+
+
+.sticky-bar button {
+    background-color: #f39c12;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.sticky-bar button:hover {
+    background-color: #d35400;
+}
+
+/* Модальные окна */
+.modal {
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.205);
+    backdrop-filter: blur(3px);
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+
+.modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: #1b263b5d;
+    backdrop-filter: blur(3px);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    width: 300px;
+    animation: pop 0.5s ease-in-out;
+}
+
+@keyframes pop {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+}
+
+.gift {
+    font-size: 50px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.gift:hover {
+    transform: scale(1.2);
+}
+
+.sticky-bar button {
+    background-color: #f39c12;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s;
+    box-shadow: 0 0 10px #f39c12, 0 0 20px #f39c12;
+}
+
+.sticky-bar button:hover {
+    background-color: #d35400;
+    box-shadow: 0 0 15px #ff5722, 0 0 30px #ff5722;
+}
+
+.modal-content {
+    background-color: rgba(27, 38, 59, 0.8);
+    backdrop-filter: blur(5px);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    width: 300px;
+    animation: pop 0.5s ease-in-out;
+    box-shadow: 0 0 20px #4c74af, 0 0 30px #4c7faf;
+}
+
+
+@keyframes slide-down {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+}
+
+.modal-content {
+    animation: pop 0.5s ease-in-out;
+}
+
+.modal.hide .modal-content {
+    animation: slide-down 0.3s ease forwards;
+}
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(180deg, #0d1b2a, #1b263b, #415a77);
+}
+
+.flash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    opacity: 0;
+    z-index: 1002;
+    pointer-events: none;
+    animation: flash 0.5s ease;
+}
+
+@keyframes flash {
+    0% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 0;
+    }
+}
